@@ -3,7 +3,6 @@ const {moons} = require('./moons');
 
 const MOON_ORBIT_IN_DAYS = 29.53;
 
-
 function getMoon() {
    const moonAgedInDays = getMoonAgeInDays();
    // map day into 14 moon phases
