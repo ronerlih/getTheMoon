@@ -1,4 +1,4 @@
-# Tell Time!
+# 🌔 Get The Moon!
 ###### (Example package for npm deployment.)
 
 #### Install
