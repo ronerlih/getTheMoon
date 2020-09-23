@@ -1,6 +1,6 @@
 {
   "name": "get-the-moon",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "🌗 gets the Moon",
   "main": "index.js",
   "scripts": {
@@ -8,8 +8,8 @@
   },
   "bin": {
     "getMoon": "bin/getMoon.js",
-    "getMoonPercent": "bin/getMoon.js",
-    "getMoonAgeInDays": "bin/getMoon.js"
+    "getMoonPercent": "bin/getMoonPercent.js",
+    "getMoonAgeInDays": "bin/getMoonAgeInDays.js"
   },
   "author": "ron",
   "license": "ISC"
