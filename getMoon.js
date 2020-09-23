@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 
 // Moon calculation from https://www.subsystems.us/uploads/9/8/9/4/98948044/moonphase.pdf
 
