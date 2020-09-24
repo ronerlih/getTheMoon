@@ -14,6 +14,10 @@
     "getMoonAgeInDays": "bin/getMoonAgeInDays.js",
     "getMoonEmoji": "bin/getMoonEmoji.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ronerlih/getTheMoon.git"
+  },
   "author": "ron",
   "license": "ISC"
 }
