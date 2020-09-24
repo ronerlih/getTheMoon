@@ -10,8 +10,9 @@ function getMoonAscii() {
    const moonAgedInDays = getMoonAgeInDays();
    // map day into 14 moon phases
    const mappedMoonDay = moonAgedInDays.map(0, MOON_ORBIT_IN_DAYS, 0, 28);
-   // print moon
+   // print moon (reverse string for waxing moons)
    return moons[Math.floor(mappedMoonDay < 14 ? mappedMoonDay : 28 - mappedMoonDay )]
+      .split("").reverse().join("")
       .concat('\nTo a Moon calendar: \nhttps://www.almanac.com/astronomy/moon/calendar')
 }
 
