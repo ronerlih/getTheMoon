@@ -1,6 +1,6 @@
 {
   "name": "get-the-moon",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "🌗 gets the Moon",
   "main": "index.js",
   "scripts": {
@@ -19,5 +19,5 @@
     "url": "git+https://github.com/ronerlih/getTheMoon.git"
   },
   "author": "ron",
-  "license": "ISC"
+  "license": "MIT"
 }
