@@ -18,6 +18,12 @@
     "type": "git",
     "url": "git+https://github.com/ronerlih/getTheMoon.git"
   },
+  "keywords": [
+    "moon",
+    "emoji",
+    "ascii",
+    "javascript"
+  ]
   "author": "ron",
   "license": "MIT"
 }

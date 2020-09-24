@@ -1,3 +1,5 @@
+[![https://www.npmjs.com/package/get-the-moon](https://img.shields.io/npm/v/get-the-moon)](https://www.npmjs.com/package/get-the-moon)
+
 # 🌔 Get The Moon!
 ###### (Example package for npm deployment.)
 
