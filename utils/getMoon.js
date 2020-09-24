@@ -11,8 +11,8 @@ function getMoonAscii() {
    // map day into 14 moon phases
    const mappedMoonDay = moonAgedInDays.map(0, MOON_ORBIT_IN_DAYS, 0, 28);
    // print moon
-   console.log(moons[Math.floor(mappedMoonDay < 14 ? mappedMoonDay : 28 - mappedMoonDay )])
-   console.log('to a Moon calendar: https://www.almanac.com/astronomy/moon/calendar')
+   return moons[Math.floor(mappedMoonDay < 14 ? mappedMoonDay : 28 - mappedMoonDay )]
+      .concat('\nTo a Moon calendar: \nhttps://www.almanac.com/astronomy/moon/calendar')
 }
 
 function getMoonAgeInDays(){
