@@ -1,15 +1,18 @@
 {
   "name": "get-the-moon",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "🌗 gets the Moon",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
+    "moon": "bin/getMoon.js",
     "getMoon": "bin/getMoon.js",
+    "getMoonAscii": "bin/getMoon.js",
     "getMoonPercent": "bin/getMoonPercent.js",
-    "getMoonAgeInDays": "bin/getMoonAgeInDays.js"
+    "getMoonAgeInDays": "bin/getMoonAgeInDays.js",
+    "getMoonEmoji": "bin/getMoonEmoji.js"
   },
   "author": "ron",
   "license": "ISC"

@@ -1,11 +1,12 @@
 
 // Moon calculation from https://www.subsystems.us/uploads/9/8/9/4/98948044/moonphase.pdf
 
-const {moons} = require('./moons');
+const { moons } = require('../moons/moons');
+const { moonEmojis } = require('../moons/moonEmojis');
 
 const MOON_ORBIT_IN_DAYS = 29.53;
 
-function getMoon() {
+function getMoonAscii() {
    const moonAgedInDays = getMoonAgeInDays();
    // map day into 14 moon phases
    const mappedMoonDay = moonAgedInDays.map(0, MOON_ORBIT_IN_DAYS, 0, 28);
@@ -18,6 +19,12 @@ function getMoonAgeInDays(){
    const moonAgeInDays = getMoonPercent() * MOON_ORBIT_IN_DAYS
    
    return moonAgeInDays;
+   
+}
+
+function getMoonEmoji(){
+   const moonAgeInDays = getMoonPercent() * MOON_ORBIT_IN_DAYS
+   return moonEmojis[Math.floor(moonAgeInDays)];
    
 }
 function getMoonPercent(){
@@ -34,10 +41,12 @@ function getMoonPercent(){
 }
 
 module.exports = {
-   getMoon,
+   getMoonAscii,
    getMoonPercent,
-   getMoonAgeInDays
+   getMoonAgeInDays,
+   getMoonEmoji
 }
+
 Number.prototype.map = function (in_min, in_max, out_min, out_max) {
    return (this - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
  }

@@ -1,10 +1,11 @@
 #!/usr/bin/env node
-const {getMoon,getMoonPercent,getMoonAgeInDays} = require('./getMoon.js')
+const {getMoonAscii, getMoonPercent, getMoonAgeInDays, getMoonEmoji} = require('./utils/getMoon.js')
 
 module.exports = {
-    getMoon,
+    getMoonAscii,
     getMoonPercent,
-    getMoonAgeInDays
+    getMoonAgeInDays,
+    getMoonEmoji
 }
 
 
