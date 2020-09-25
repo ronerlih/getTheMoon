@@ -46,7 +46,7 @@ function getMoonPercent(){
    const daysSinceFullMoon = (Date.now() - PAST_FULL_MOON) / oneDay
    const moonOrbits = daysSinceFullMoon / MOON_ORBIT_IN_DAYS;
    const moonOrbitsFloatingPoint = "0." + moonOrbits.toString().split(".")[1]
-   return moonOrbitsFloatingPoint;
+   return Math.parseFloat(moonOrbitsFloatingPoint);
 }
 
 module.exports = {
