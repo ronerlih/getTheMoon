@@ -1,3 +1,5 @@
 #!/usr/bin/env node
 const { getMoonAscii } = require("../utils/getMoon");
-console.log(getMoonAscii());
+process && process.argv && process.argv[2]
+   ? console.log(getMoonAscii(true))
+   : console.log(getMoonAscii())

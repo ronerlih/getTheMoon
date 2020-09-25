@@ -6,28 +6,37 @@ const { moonEmojis } = require('../moons/moonEmojis');
 
 const MOON_ORBIT_IN_DAYS = 29.53;
 
-function getMoonAscii() {
+function getMoonAscii(inverse) {
    const moonAgedInDays = getMoonAgeInDays();
    // map day into 14 moon phases
    const mappedMoonDay = moonAgedInDays.map(0, MOON_ORBIT_IN_DAYS, 0, 28);
-   // print moon (reverse string for waxing moons)
-   return moons[Math.floor(mappedMoonDay < 14 ? mappedMoonDay : 28 - mappedMoonDay )]
-      .split("").reverse().join("")
-      .concat('\nTo a Moon calendar: \nhttps://www.almanac.com/astronomy/moon/calendar')
+   // print moon (reverse string for waxing moons and inverse background option)
+   return mappedMoonDay < 14 
+      ? inverse
+         ? moons[Math.floor(mappedMoonDay)]
+            .replace(/M/gm, " ")
+            .concat('\nTo a Moon calendar: \nhttps://www.almanac.com/astronomy/moon/calendar')
+         : moons[Math.floor(mappedMoonDay)]
+         .concat('\nTo a Moon calendar: \nhttps://www.almanac.com/astronomy/moon/calendar')
+      : inverse 
+         ? moons[Math.floor(Math.abs(28 - mappedMoonDay) )].split("").reverse().join("")
+            .replace(/M/gm, " ")
+            .concat('\nTo a Moon calendar: \nhttps://www.almanac.com/astronomy/moon/calendar')
+         : moons[Math.floor(Math.abs(28 - mappedMoonDay) )].split("").reverse().join("")
+            .concat('\nTo a Moon calendar: \nhttps://www.almanac.com/astronomy/moon/calendar')
 }
 
 function getMoonAgeInDays(){
    const moonAgeInDays = getMoonPercent() * MOON_ORBIT_IN_DAYS
-   
    return moonAgeInDays;
-   
 }
 
 function getMoonEmoji(){
+
    const moonAgeInDays = getMoonPercent() * MOON_ORBIT_IN_DAYS
    return moonEmojis[Math.floor(moonAgeInDays)];
-   
 }
+
 function getMoonPercent(){
    const PAST_FULL_MOON = new Date('2000-01-06T12:24:01');
    const seconds = 1000
@@ -38,7 +47,6 @@ function getMoonPercent(){
    const moonOrbits = daysSinceFullMoon / MOON_ORBIT_IN_DAYS;
    const moonOrbitsFloatingPoint = "0." + moonOrbits.toString().split(".")[1]
    return moonOrbitsFloatingPoint;
- 
 }
 
 module.exports = {

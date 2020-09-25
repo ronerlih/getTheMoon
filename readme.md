@@ -1,13 +1,14 @@
 [![https://www.npmjs.com/package/get-the-moon](https://img.shields.io/npm/v/get-the-moon)](https://www.npmjs.com/package/get-the-moon)
 
 # 🌔 Get The Moon!
-###### (Example package for npm deployment.)
+###### (Example package for npm deployment)
 
-##### And also to get the current Moon phase in Javascript or the command line
+##### And also, to get the current Moon phase in Javascript or the command line.
 
 ## Install
 `npm i get-the-moon`
-or globaly
+
+or globaly (to use in the command line)
 `npm i get-the-moon -g`
 
 ## Usage
@@ -36,7 +37,7 @@ console.log(moon.getMoonEmoji()) // 🌔 (according to the Moon phase)
 
 **getMoonAscii** returns  \<*String*> // and consoles the Ascii moon phase
 ```js
-console.log(Moon.getMoonAscii()) // (according to the Moon phase)
+console.log(Moon.getMoonAscii([<Bool>])) // accepts an optional Boolean to inverse the Ascii background Characters (ASCII art according to the Moon phase)
 
 // MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 // MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
@@ -93,15 +94,19 @@ console.log(Moon.getMoonAscii()) // (according to the Moon phase)
 
 ```
 
+#### ASCII tools shoutouts 💎
+- web: https://www.text-image.com/convert/ascii.html
+- npm: https://www.npmjs.com/package/asciify-image
+- npm https://www.npmjs.com/package/image-to-ascii
 #### Command Line Methods
 ```sh
-$ moon  (getMoonAscii) //return <String> and prints the Ascii Moon
+$ moon [-inverse] (getMoonAscii) //return <String> and prints the Ascii Moon
 ```
 ```sh
-$ getMoon  (getMoonAscii) //return <String> and prints the Ascii Moon
+$ getMoon [-inverse] (getMoonAscii) //return <String> and prints the Ascii Moon
 ```
 ```sh
-$ getMoonAscii //return <String> and prints the Ascii Moon
+$ getMoonAscii [-inverse] //return <String> and prints the Ascii Moon
 ```
 ```sh
 $ getMoonEmoji //return <String> Moon emoji acording to moon phase 
@@ -115,7 +120,7 @@ $ getMoonAgeInDays // returns <Number> floating point acording to moon phase
 
 ## Contributing
 
-Please feel free to contribute to this project! :) Pull requests and feature requests welcome!
+Please feel free to contribute to this project! Pull requests and feature requests are welcome via Issues!
 
 ## License
-The MIT License (MIT)
+get-the-moon is distributed under The [MIT License](https://opensource.org/licenses/MIT)
