@@ -9,6 +9,7 @@
 `npm i get-the-moon`
 
 or globaly (to use in the command line)
+
 `npm i get-the-moon -g`
 
 ## Usage
