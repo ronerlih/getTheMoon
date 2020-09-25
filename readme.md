@@ -119,9 +119,11 @@ $ getMoonPercent // returns <Number> floating point acording to moon phase
 $ getMoonAgeInDays // returns <Number> floating point acording to moon phase
 ```
 
-## Contributing
+## 🌼 Contributing
 
-Please feel free to contribute to this project! Pull requests and feature requests are welcome via Issues!
+Contributions are welcome!! 
+- Issues with Feature requests, ideas ✨ and Bug reports 🐞 are welcome!
+- Or Fork & Pull request.
 
 ## License
 get-the-moon is distributed under The [MIT License](https://opensource.org/licenses/MIT)
