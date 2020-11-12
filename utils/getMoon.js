@@ -3,6 +3,7 @@
 
 const { moons } = require('../moons/moons');
 const { moonEmojis } = require('../moons/moonEmojis');
+const { moonNames } = require('../moons/moonNames');
 
 const MOON_ORBIT_IN_DAYS = 29.53;
 
@@ -31,6 +32,11 @@ function getMoonAgeInDays(){
    return moonAgeInDays;
 }
 
+function getMoonPhaseName(){
+   const moonAgeInDays = getMoonPercent() * MOON_ORBIT_IN_DAYS
+   return moonNames[Math.floor(moonAgeInDays)];
+}
+
 function getMoonEmoji(){
 
    const moonAgeInDays = getMoonPercent() * MOON_ORBIT_IN_DAYS
@@ -53,7 +59,8 @@ module.exports = {
    getMoonAscii,
    getMoonPercent,
    getMoonAgeInDays,
-   getMoonEmoji
+   getMoonEmoji,
+   getMoonPhaseName
 }
 
 Number.prototype.map = function (in_min, in_max, out_min, out_max) {
