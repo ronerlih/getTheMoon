@@ -60,6 +60,7 @@ function getNewMoonInDays(date){
   const D = now.getDate()
   const HOURS_Fraction = now.getHours() / 24
   const MIN_Fraction = now.getMinutes() / 60
+  const SECONDS_Fraction = now.getSeconds() / 60
 
   // If the month is January or February, subtract 1 from the year and add 12 to the month.
   if (M <= 2) {
@@ -72,7 +73,7 @@ function getNewMoonInDays(date){
   const C = 2 - A + B
   const E = parseInt(365.25 * ( Y + 4716))
   const F = parseInt(30.6001 * ( M + 1 ))
-  const julianDay = C + D + HOURS_Fraction + MIN_Fraction + E + F - 1524.5
+  const julianDay = C + D + HOURS_Fraction + MIN_Fraction + SECONDS_Fraction + E + F - 1524.5
 
   // day since new moon
   const daySinceNewMoon = julianDay - NEW_MOON_IN_JULIADN_DAYS
