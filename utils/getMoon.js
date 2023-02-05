@@ -12,7 +12,7 @@ const MOON_ORBIT_IN_MILLISECONDS = MOON_ORBIT_IN_DAYS * 24 * 60 * 60 * 1000;
 
 
 function getMoonAscii(inverse) {
-   const moonAgedInDays = getMoonAgeInDays();
+   const moonAgedInDays = getMoonAgeInDays(date);
    // map day into 14 moon phases
    const mappedMoonDay = moonAgedInDays.map(0, MOON_ORBIT_IN_DAYS, 0, 28);
    // print moon (reverse string for waxing moons and inverse background option)
@@ -31,21 +31,21 @@ function getMoonAscii(inverse) {
             .concat('\nTo a Moon calendar: \nhttps://www.almanac.com/astronomy/moon/calendar')
 }
 
-function getMoonAgeInDays(){
-   return getNewMoonInDays()
+function getMoonAgeInDays(date){
+   return getNewMoonInDays(date)
 }
 
-function getMoonEmoji(){
+function getMoonEmoji(date){
 
-   return moonEmojis[parseInt(getMoonAgeInDays())];
+   return moonEmojis[parseInt(getMoonAgeInDays(date))];
 }
 
-function getMoonPercent(){
-  return  getNewMoonInDays() / (MOON_ORBIT_IN_DAYS / 2)
+function getMoonPercent(date){
+  return  getNewMoonInDays(date) / (MOON_ORBIT_IN_DAYS / 2)
 
 }
 
-function getNewMoonInDays(){
+function getNewMoonInDays(date){
 
   // get the julian day count
   // 🌐 => https://www.subsystems.us/uploads/9/8/9/4/98948044/moonphase.pdf
@@ -53,7 +53,7 @@ function getNewMoonInDays(){
   const SECONDS_IN_A_MINUTE = 60
   const MILLISECONDS_IN_A_SECOND = 60
 
-  const UTCnow = new Date()
+  const UTCnow = date ? date : new Date()
   const now = new Date(UTCnow - UTCnow.getTimezoneOffset() * SECONDS_IN_A_MINUTE * MILLISECONDS_IN_A_SECOND)
   let Y = now.getFullYear()
   let M = now.getMonth() + 1 // 0 index month
