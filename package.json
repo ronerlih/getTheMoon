@@ -1,6 +1,6 @@
 {
   "name": "get-the-moon",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "🌗 gets the Moon",
   "main": "index.js",
   "scripts": {
