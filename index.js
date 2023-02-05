@@ -7,6 +7,3 @@ module.exports = {
     getMoonAgeInDays,
     getMoonEmoji,
 }
-
-console.log('getMoonPercent', getMoonPercent())
-console.log('getMoonAgeInDays', getMoonAgeInDays())
