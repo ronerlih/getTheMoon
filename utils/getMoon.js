@@ -37,8 +37,7 @@ function getMoonAgeInDays(){
 
 function getMoonEmoji(){
 
-   const moonAgeInDays = getMoonPercent() * MOON_ORBIT_IN_DAYS
-   return moonEmojis[Math.floor(moonAgeInDays)];
+   return moonEmojis[parseInt(getMoonAgeInDays())];
 }
 
 function getMoonPercent(){
@@ -53,7 +52,7 @@ function getNewMoonInDays(){
   // const now = new Date('2017-03-29T12:24:01')
   const SECONDS_IN_A_MINUTE = 60
   const MILLISECONDS_IN_A_SECOND = 60
-  
+
   const UTCnow = new Date()
   const now = new Date(UTCnow - UTCnow.getTimezoneOffset() * SECONDS_IN_A_MINUTE * MILLISECONDS_IN_A_SECOND)
   let Y = now.getFullYear()
