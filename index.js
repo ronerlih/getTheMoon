@@ -7,5 +7,3 @@ module.exports = {
     getMoonAgeInDays,
     getMoonEmoji
 }
-
-

@@ -4,7 +4,12 @@
 const { moons } = require('../moons/moons');
 const { moonEmojis } = require('../moons/moonEmojis');
 
+const NEW_MOON_IN_JULIADN_DAYS =  2451549.5
 const MOON_ORBIT_IN_DAYS = 29.53;
+const MOON_ORBIT_IN_JULIAN_DAYS = 27.32;
+const MOON_ORBIT_IN_JULIAN_DAYS_MILLISECONDS = MOON_ORBIT_IN_JULIAN_DAYS * 24 * 60 * 60 * 1000;
+const MOON_ORBIT_IN_MILLISECONDS = MOON_ORBIT_IN_DAYS * 24 * 60 * 60 * 1000;
+
 
 function getMoonAscii(inverse) {
    const moonAgedInDays = getMoonAgeInDays();
@@ -27,8 +32,7 @@ function getMoonAscii(inverse) {
 }
 
 function getMoonAgeInDays(){
-   const moonAgeInDays = getMoonPercent() * MOON_ORBIT_IN_DAYS
-   return moonAgeInDays;
+   return getNewMoonInDays()
 }
 
 function getMoonEmoji(){
@@ -38,15 +42,38 @@ function getMoonEmoji(){
 }
 
 function getMoonPercent(){
-   const PAST_FULL_MOON = new Date('2000-01-06T12:24:01');
-   const seconds = 1000
-   const minutes = 60 * seconds
-   const hours = 60 * minutes
-   const oneDay = 24 * hours
-   const daysSinceFullMoon = (Date.now() - PAST_FULL_MOON) / oneDay
-   const moonOrbits = daysSinceFullMoon / MOON_ORBIT_IN_DAYS;
-   const moonOrbitsFloatingPoint = "0." + moonOrbits.toString().split(".")[1]
-   return Math.parseFloat(moonOrbitsFloatingPoint);
+  return  ((getNewMoonInDays() + MOON_ORBIT_IN_DAYS/2) % MOON_ORBIT_IN_DAYS)
+
+}
+function getNewMoonInDays(){
+
+  // get the julian day count
+  // 🌐 => https://www.subsystems.us/uploads/9/8/9/4/98948044/moonphase.pdf
+  const now = new Date()
+  let Y = now.getFullYear()
+  let M = now.getMonth() + 1 // 0 index month
+  const D = now.getDate()
+
+  // If the month is January or February, subtract 1 from the year and add 12 to the month.
+  if (M <= 2) {
+    Y--
+    M += 12
+  }
+
+  const A = parseInt(Y / 100)
+  const B = parseInt(A / 4)
+  const C = 2 - A + B
+  const E = parseInt(365.25 * ( Y + 4716))
+  const F = parseInt(30.6001 * ( M + 1 ))
+  const julianDay = C + D + E + F - 1524.5
+
+  // day since new moon
+  const daySinceNewMoon = julianDay - NEW_MOON_IN_JULIADN_DAYS
+  const newMoons = daySinceNewMoon / MOON_ORBIT_IN_DAYS
+
+  const newMoonInDays = parseFloat('0.' + newMoons.toString().split('.')[1]) * MOON_ORBIT_IN_DAYS
+
+  return newMoonInDays
 }
 
 module.exports = {
