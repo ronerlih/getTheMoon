@@ -127,3 +127,8 @@ Contributions are welcome!!
 
 ## License
 get-the-moon is distributed under The [MIT License](https://opensource.org/licenses/MIT)
+
+## ❤️ Thanks for the help to
+http://bazaar.launchpad.net/~keturn/py-moon-phase/trunk/annotate/head:/moon.py
+https://astronomy.stackexchange.com/questions/20973/what-should-i-consider-in-order-to-accurately-calculate-the-moon-phase
+https://en.wikipedia.org/wiki/Jean_Meeus

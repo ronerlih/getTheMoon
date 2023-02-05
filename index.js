@@ -5,5 +5,8 @@ module.exports = {
     getMoonAscii,
     getMoonPercent,
     getMoonAgeInDays,
-    getMoonEmoji
+    getMoonEmoji,
 }
+
+console.log('getMoonPercent', getMoonPercent())
+console.log('getMoonAgeInDays', getMoonAgeInDays())

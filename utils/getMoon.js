@@ -42,14 +42,20 @@ function getMoonEmoji(){
 }
 
 function getMoonPercent(){
-  return  ((getNewMoonInDays() + MOON_ORBIT_IN_DAYS/2) % MOON_ORBIT_IN_DAYS)
+  return  getNewMoonInDays() / (MOON_ORBIT_IN_DAYS / 2)
 
 }
+
 function getNewMoonInDays(){
 
   // get the julian day count
   // 🌐 => https://www.subsystems.us/uploads/9/8/9/4/98948044/moonphase.pdf
-  const now = new Date()
+  // const now = new Date('2017-03-29T12:24:01')
+  const SECONDS_IN_A_MINUTE = 60
+  const MILLISECONDS_IN_A_SECOND = 60
+  
+  const UTCnow = new Date()
+  const now = new Date(UTCnow - UTCnow.getTimezoneOffset() * SECONDS_IN_A_MINUTE * MILLISECONDS_IN_A_SECOND)
   let Y = now.getFullYear()
   let M = now.getMonth() + 1 // 0 index month
   const D = now.getDate()
@@ -80,7 +86,7 @@ module.exports = {
    getMoonAscii,
    getMoonPercent,
    getMoonAgeInDays,
-   getMoonEmoji
+   getMoonEmoji,
 }
 
 Number.prototype.map = function (in_min, in_max, out_min, out_max) {
