@@ -41,7 +41,16 @@ function getMoonEmoji(date){
 }
 
 function getMoonPercent(date){
-  return  getNewMoonInDays(date) / (MOON_ORBIT_IN_DAYS / 2)
+  
+  // getNewMoonInDays returns a range of 0-29.53 days where at ~14.265 the moon is full
+  const moonPhaseDayFloat = getNewMoonInDays(date)
+  
+  // past day 14 is wainning, signed full moon percent is less relevant since it is in a full state
+  const isWainning = moonPhaseDayFloat > (MOON_ORBIT_IN_DAYS / 2)
+  const moonPhasePercent = (getNewMoonInDays(date) % (MOON_ORBIT_IN_DAYS / 2)) / (MOON_ORBIT_IN_DAYS / 2)
+
+  // return cemetric percent on waining
+  return isWainning ? moonPhasePercent - 1 : moonPhasePercent
 
 }
 
